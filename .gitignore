@@ -1,0 +1,75 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Transcription outputs
+*_transcript.txt
+*_transcript.md
+*_grounded.txt
+*.srt
+*.vtt
+*.tsv
+
+# Audio/Video files (user content, not part of skill)
+*.mp3
+*.wav
+*.m4a
+*.mp4
+*.webm
+*.mkv
+*.avi
+*.mov
+*.flac
+*.ogg
+*.opus
+*.wma
+*.aac
+
+# Distribution archives
+*.zip
+*.tar.gz
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
