@@ -2,6 +2,22 @@
 
 OpenAI Whisper command-line interface options and usage patterns.
 
+## Contents
+
+- [Basic Syntax](#basic-syntax)
+- [Core Options](#core-options)
+  - [Model Selection](#model-selection---model)
+  - [Language](#language---language)
+  - [Output Format](#output-format---output_format)
+  - [Output Directory](#output-directory---output_dir)
+- [Advanced Options](#advanced-options)
+- [Performance Options](#performance-options)
+- [Common Workflows](#common-workflows)
+- [Supported Audio Formats](#supported-audio-formats)
+- [Error Handling](#error-handling)
+- [Python API](#python-api-alternative)
+- [References](#references)
+
 ## Basic Syntax
 
 ```bash

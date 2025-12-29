@@ -2,10 +2,10 @@
 name: whisper-transcribe
 description: |
   Transcribes audio and video files to text using OpenAI's Whisper CLI with contextual grounding.
-  This skill should be used when users need to convert audio/video to text, transcribe recordings,
-  or create transcripts from media files. The skill's unique capability is using markdown files in
-  the same directory as context to improve transcription accuracy for technical terms, proper nouns,
-  and domain-specific vocabulary. Supports macOS (Homebrew) and Linux installations.
+  Converts audio/video to text, transcribes recordings, and creates transcripts from media files.
+  Use when asked to "whisper transcribe", "transcribe audio", "convert recording to text", or
+  "speech to text". Uses markdown files in the same directory as context to improve transcription
+  accuracy for technical terms, proper nouns, and domain-specific vocabulary.
 version: 1.0.0
 category: media-processing
 triggers:
@@ -39,7 +39,7 @@ Transcribe audio and video files to text using OpenAI's Whisper with contextual 
 
 ## Purpose
 
-This skill provides intelligent audio/video transcription that:
+Intelligent audio/video transcription that:
 1. Converts media files to accurate text transcripts
 2. Uses markdown context files to correct technical terms, names, and jargon
 3. Handles various audio/video formats (mp3, wav, m4a, mp4, webm, etc.)
@@ -129,8 +129,14 @@ whisper "audio.mp3" --output_format all    # All formats
 
 ### Step 3: Apply Context Grounding
 
-After transcription, use markdown files in the same directory to correct errors:
+Use the `scripts/transcribe_with_context.py` script for automated grounding, or manually apply corrections:
 
+```bash
+# Automated approach (recommended)
+python scripts/transcribe_with_context.py /path/to/audio.mp3
+```
+
+For manual grounding:
 1. Read the transcript output
 2. Read all `.md` files in the media file's directory
 3. Extract terminology, names, and technical terms from context files
@@ -138,9 +144,9 @@ After transcription, use markdown files in the same directory to correct errors:
 5. Apply corrections based on context
 
 **Common corrections:**
-- "cooler net ease" → "Kubernetes"
-- "sequel" → "SQL"
-- "post gress" → "Postgres"
+- "cooler net ease" -> "Kubernetes"
+- "sequel" -> "SQL"
+- "post gress" -> "Postgres"
 - Names: Match phonetic variations to names in context files
 
 ### Step 4: Save Corrected Transcript
@@ -186,13 +192,9 @@ See `assets/context-template.md` for a complete template.
 
 ## Model Selection Guide
 
-| Model  | Size   | RAM Required | Speed    | Accuracy | Best For                    |
-|--------|--------|--------------|----------|----------|-----------------------------|
-| tiny   | 39 MB  | ~1 GB        | Fastest  | Lower    | Quick drafts, testing       |
-| base   | 74 MB  | ~1 GB        | Fast     | Good     | General use                 |
-| small  | 244 MB | ~2 GB        | Medium   | Better   | Important recordings        |
-| medium | 769 MB | ~5 GB        | Slower   | High     | Professional transcription  |
-| large  | 1550 MB| ~10 GB       | Slowest  | Highest  | Critical accuracy needs     |
+Use `base` for general use, `medium` for important recordings. See `references/whisper-options.md` for full model comparison and all available options.
+
+**Quick reference:** `tiny` (fastest) < `base` (balanced) < `small` (better) < `medium` (high) < `large` (best accuracy)
 
 For MacBook Pro with Apple Silicon: `small` or `medium` models recommended for best speed/accuracy balance.
 
