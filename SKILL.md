@@ -144,9 +144,9 @@ For manual grounding:
 5. Apply corrections based on context
 
 **Common corrections:**
-- "cooler net ease" → "Kubernetes"
-- "sequel" → "SQL"
-- "post gress" → "Postgres"
+- "cooler net ease" -> "Kubernetes"
+- "sequel" -> "SQL"
+- "post gress" -> "Postgres"
 - Names: Match phonetic variations to names in context files
 
 ### Step 4: Save Corrected Transcript
